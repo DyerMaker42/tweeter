@@ -4,4 +4,6 @@
    display: flex;
    align-items: center;
    flex-direction: column;
+   background-color: #c76700;
+   background-image: url("https://www.transparenttextures.com/patterns/argyle.png");
  }
