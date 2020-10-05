@@ -2,9 +2,21 @@ nav{
   height: 120px;
   width:100%;
   background-color: #4056a1;
-  color:#FFFF;
-  border: 1.5em;
+  color:#FFFFFF;
+  
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5em;
 }
-.navbar{
+#logo{
   font-family: "Bungee", sans-serif;
+}
+
+.tweet-button {
+  font-family: "Source Sans Pro";
+}
+
+strong{
+  font-weight: bold;
 }
