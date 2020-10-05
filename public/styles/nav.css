@@ -3,4 +3,8 @@ nav{
   width:100%;
   background-color: #4056a1;
   color:#FFFF;
+  border: 1.5em;
+}
+.navbar{
+  font-family: "Bungee", sans-serif;
 }
