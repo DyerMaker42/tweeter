@@ -12,7 +12,13 @@
 
 #tweet-text{
   display: flex;
-  
+  border:none;
+  color: transparent;
+  padding: 0px 0px 0px 0px;
+	background: transparent;
+	outline: none;
+	border: none;
+	border-bottom: 4px solid  #83A4C5;
 }
 
 .
