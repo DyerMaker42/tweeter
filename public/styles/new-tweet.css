@@ -1,0 +1,11 @@
+.new-tweet{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  color: blueviolet;
+}
+
+.counter{
+  flex-wrap:  ;
+  display: flex
+}
