@@ -1,6 +1,6 @@
 .new-tweet{
   display:flex;
-  flex-direction: column;
+  
   
   color: blueviolet;
 }
@@ -15,10 +15,28 @@
   border:none;
   color: #777;
   padding: 0px 0px 0px 0px;
-	background: transparent;
+  background: transparent;
+  resize: none;
 	outline: none;
-	border: none;
-  border-bottom: 4px solid  #83A4C5;
-  text-emphasis-color: #FF0FF0;
+  border: none;
+  min-width: 30em;
+  border-bottom: 3px solid  #83A4C5;
+  margin: 20px 0px;
+  line-height: .85;
 }
 
+button{
+  /* makes dope slightly rounded button */
+  border-radius: .25em;
+  background-color: #4056a1;
+  font-weight: 700;
+  color: white;
+  display:flex;
+  justify-content: center;
+}
+
+div.under-tweet{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
