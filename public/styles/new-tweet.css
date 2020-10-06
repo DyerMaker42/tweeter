@@ -1,11 +1,18 @@
 .new-tweet{
   display:flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  
   color: blueviolet;
 }
 
 .counter{
-  flex-wrap:  ;
-  display: flex
+  display: flex;
+  flex-direction: row-reverse;
 }
+
+#tweet-text{
+  display: flex;
+  
+}
+
+.
