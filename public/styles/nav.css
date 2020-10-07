@@ -9,6 +9,10 @@ nav{
   justify-content: space-between;
   padding: 1.5em;
 
+  position: fixed;   
+  
+  top: 0;
+
 
   
 }
