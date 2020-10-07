@@ -44,3 +44,22 @@ div.under-tweet{
 div[id="tweet-container"]{
   display:flex;
 }
+
+.tweet{
+  display: flex;
+  justify-content: space-between;
+}
+header .tweet-header{
+  display: flex;
+  align-items: center;
+  
+}
+
+.tweet-header h4{
+  padding-left: 10px;
+}
+
+footer.tweet-footer{
+  display: flex;
+  justify-content: space-between;
+}
