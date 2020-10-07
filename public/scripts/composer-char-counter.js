@@ -1,12 +1,13 @@
 const vampire = (text) => console.log(`Hello ${text}`);
 
-// $(document).ready(function(){
-// document.on("doubleclick",console.log(this) )
-// });
-
-document.addEventListener("doubleclick",() => {
-  console.log("FUCK THIS")
-})
-
-// textarea.on("doubleclick",vampire(1) );
-// textarea.on("click",vampire(2) )
+$(document).ready(function () {
+  $("#tweet-text").on("keyup", function () {
+    const input = $(this);
+    console.log(input.val().length);
+    const counterNumber = 140 - input.val().length
+    $(".counter").text(counterNumber);
+    if (counterNumber <= 0) {
+      $(".counter").css("color", '#f76e6e')
+    }
+  })
+});
