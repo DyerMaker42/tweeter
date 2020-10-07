@@ -1,4 +1,5 @@
- header{
+/* used top tag instead of header */
+ #top{
    height:400px;
    min-width: 100%;
    display: flex;

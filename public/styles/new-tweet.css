@@ -40,3 +40,7 @@ div.under-tweet{
   justify-content: space-between;
   align-items: center;
 }
+
+div[id="tweet-container"]{
+  display:flex;
+}
