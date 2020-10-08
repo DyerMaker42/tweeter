@@ -6,14 +6,22 @@
 
 
 
-const renderTweets = function(tweets) {
+const renderTweets = function (tweets) {
   // loops through tweets
-  let newTweet = {};
-  for(let tweet of tweets){
-    
-    newTweet[tweet]= createTweetElement(tweet);
+  if (tweets.length === 1) {
+    let newTweet = createTweetElement(tweet);
+
+    $("#tweet-container").append(newTweet)
   }
-  return newTweet
+
+  if (tweets.length > 1) {
+    for (let tweet of tweets) {
+
+      let newTweet = createTweetElement(tweet);
+
+      $("#tweet-container").append(newTweet)
+    }
+  }
   // calls createTweetElement for each tweet
   // takes return value and appends it to the tweets container
 }
@@ -21,21 +29,22 @@ const renderTweets = function(tweets) {
 
 
 
-const createTweetElement = function(tweet) {
+const createTweetElement = function (tweet) {
+  let daysAgo = function (tweet) {
+    new Date(tweet["created_at"])
+  }
   let $tweet = /* Your code for creating the tweet element */
-  // ...
-  $(`<article>
-
+    $(`<article>
     <header class="tweet">
       <div class="tweet-header">
         <i class="fas fa-horse-head"></i>
         <h4>${tweet.user.name}</h4>
       </div>
-      <h2 class=>${tweet.user.handle}</h2>
+      <h2>${tweet.user.handle}</h2>
     </header>
     <p class="tweet-body"> ${tweet.content.text}</p>
     <footer class="tweet-footer">
-      <p>${new Date(tweet["created_at"])} Days ago</p>
+      <p>${daysAgo} Days ago</p>
       <div>
         <i class="fas fa-flag"></i>
         <i class="fas fa-share"></i>
@@ -43,7 +52,7 @@ const createTweetElement = function(tweet) {
       </div>
     </footer>
   </article>`)
-  
+
   return $tweet;
 }
 
@@ -54,24 +63,25 @@ $(document).ready(function () {
     "user": {
       "name": "Newton",
       "avatars": "https://i.imgur.com/73hZDYK.png",
-        "handle": "@SirIsaac"
-      },
+      "handle": "@SirIsaac"
+    },
     "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
+      "text": "If I have seen further it is by standing on the shoulders of giants"
+    },
     "created_at": 1461116232227
- }
-  
+  }
+
   const $tweet = $(`<article class="tweet">Hello world</article>`);
 
 
-// Test / driver code (temporary)
-console.log($tweet); // to see what it looks like
-console.log($('#tweet-container'));
-$('#tweet-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+  // Test / driver code (temporary)
+  // console.log($tweet); // to see what it looks like
+  // console.log($('#tweet-container'));
+  // $('#tweet-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
 
-//renderTweets(data)
-
+  //renderTweets(data)
+  renderTweets(tweetData)
 
 
 });
+
