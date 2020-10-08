@@ -59,6 +59,24 @@ const createTweetElement = function (tweet) {
 }
 
 // $(document).ready(functino) === $(function)
+const loadTweets = function () {
+  // will use jquery to make request to /tweets
+  //receives array of tweets as json
+  // AJAX Get request to /tweets
+
+  $.ajax("/tweets", {
+    method: 'GET',
+  })
+    .then(function (res) {
+      console.log("ajax successfully received tweets")
+      console.log('res', res);
+      renderTweets(res);
+    })
+    .catch(function (err) {
+      console.log("error ajax did not successfully retrieve tweets")
+    })
+};
+
 
 $(document).ready(function () {
   const tweetData = [{
@@ -95,7 +113,7 @@ $(document).ready(function () {
   //renderTweets(tweetData)
 
   // responsible for fetching tweets from /tweets page
-  const loadTweets = function () {
+/* const loadTweets = function () {
     // will use jquery to make request to /tweets
     //receives array of tweets as json
     // AJAX Get request to /tweets
@@ -112,9 +130,9 @@ $(document).ready(function () {
         console.log("error ajax did not successfully retrieve tweets")
       })
   };
-
+*/
   //renderTweets(loadTweets);
-  loadTweets();
+  //loadTweets();
 });
 
 
@@ -163,12 +181,16 @@ $(function() {
         data: serial,
       })
         .then(function (res) {
-
+          
           console.log("tweet sent to server ")
         })
         .catch(function (err) {
           console.log("ajax load tweeter error")
-        });
+        })
+        .then(function(){
+          loadTweets();
+          console.log("new tweets loaded")
+        })
     }
   });
 
