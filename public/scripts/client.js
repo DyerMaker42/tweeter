@@ -80,7 +80,7 @@ $(document).ready(function () {
       "text": "If I have seen further it is by standing on the shoulders of giants"
     },
     "created_at": 1461116232227
-  }]
+  }];
 
   //const $tweet = $(`<article class="tweet">Hello world</article>`);
 
@@ -93,8 +93,29 @@ $(document).ready(function () {
   //renderTweets(data)
   renderTweets(tweetData)
 
+  // responsible for fetching tweets from /tweets page
+  $(function () {
 
-});
+
+    const loadTweets =
+
+      // will use jquery to make request to /tweets
+
+      //receives array of tweets as json
+
+      // AJAX Get request to /tweets
+
+      $.ajax("/tweets", {
+        method: 'GET',
+      })
+        .then(function (res) {
+          console.log("ajax successfully received tweets")
+        })
+        .catch(function (err) {
+          console.log("error ajax did not successfully retrieve tweets")
+        })
+  });
+}
 
 
 
