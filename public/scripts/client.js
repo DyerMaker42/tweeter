@@ -77,12 +77,21 @@ $(function () {
   const isTweetValid = () => {
 
     if ($("#tweet-text").val().length > 140) {
-      alert("Over 140 characters, please reduce then resubmit");
-
+      //alert("Over 140 characters, please reduce then resubmit");
+      $("div.error-box").text("Over 140 characters, please reduce then resubmit").slideDown(1000)
+      setTimeout(function(){
+        console.log("REMOVE")
+        $("div.error-box").slideUp(2000)
+      },6000)
       return false;
     }
     if ($("#tweet-text").val().length === 0) {
-      alert("Oops, you submitted nothing, please add something then try again");
+      //alert("Oops, you submitted nothing, please add something then try again");
+      $("div.error-box").text("Oops, you submitted nothing, please add something then try again").slideDown(1000)
+      setTimeout(function(){
+        console.log("REMOVE")
+        $("div.error-box").slideUp(2000)
+      },6000)
       return false;
     }
     return true;
@@ -91,7 +100,8 @@ $(function () {
 
   $("section.new-tweet form").on('submit', function (event) {
     event.preventDefault();
-
+    //doing the error thing
+    
     console.log('on submit')
     if (isTweetValid()) {
       //lookup why event target superior to this keyword
@@ -115,7 +125,7 @@ $(function () {
   });
 
 
-
+  $()
 
 
   // $(document).ready(functino) === $(function)

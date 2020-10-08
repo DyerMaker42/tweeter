@@ -91,3 +91,8 @@ article:hover .twat{
   border-bottom: 3px solid black;
   padding: 5px;
 }
+
+div.error-box{
+  display:none;
+  border: 3px solid red
+}
