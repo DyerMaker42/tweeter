@@ -15,7 +15,7 @@ $(function () {
       .then(function (res) {
         console.log("ajax successfully received tweets")
         console.log('res', res);
-        $(".tweets").empty();
+        $("#tweet-container").empty();
         renderTweets(res);
       })
       .catch(function (err) {
@@ -43,11 +43,6 @@ $(function () {
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
   }
-
-
-
-  //fix date later
-
   const createTweetElement = function (tweet) {
     let daysAgo = function (tweet) {
       return moment(tweet["created_at"]).startOf('day').fromNow();
@@ -75,6 +70,50 @@ $(function () {
 
     return $tweet;
   }
+
+  const isTweetValid = () => {
+
+    if ($("#tweet-text").val().length > 140) {
+      alert("Over 140 characters, please reduce then resubmit");
+
+      return false;
+    }
+    if ($("#tweet-text").val().length === 0) {
+      alert("Oops, you submitted nothing, please add something then try again");
+      return false;
+    }
+    return true;
+  }
+
+
+  $("section.new-tweet form").on('submit', function (event) {
+    event.preventDefault();
+
+    console.log('on submit')
+    if (isTweetValid()) {
+      //lookup why event target superior to this keyword
+      let serial = $(event.target).serialize();
+      $.ajax("/tweets", {
+        method: "POST",
+        data: serial,
+      })
+        .then(function (res) {
+
+          console.log("tweet sent to server ")
+        })
+        .catch(function (err) {
+          console.log("ajax load tweeter error")
+        })
+        .then(function () {
+          loadTweets();
+          console.log("new tweets loaded")
+        })
+    }
+  });
+
+
+  
+
 
   // $(document).ready(functino) === $(function)
 
@@ -155,45 +194,45 @@ $(function () {
 
   // load tweets function
 
-  const isTweetValid = () => {
+  // const isTweetValid = () => {
 
-    if ($("#tweet-text").val().length > 140) {
-      alert("Over 140 characters, please reduce then resubmit");
+  //   if ($("#tweet-text").val().length > 140) {
+  //     alert("Over 140 characters, please reduce then resubmit");
 
-      return false;
-    }
-    if ($("#tweet-text").val().length === 0) {
-      alert("Oops, you submitted nothing, please add something then try again");
-      return false;
-    }
-    return true;
-  }
+  //     return false;
+  //   }
+  //   if ($("#tweet-text").val().length === 0) {
+  //     alert("Oops, you submitted nothing, please add something then try again");
+  //     return false;
+  //   }
+  //   return true;
+  // }
 
 
-  $("section.new-tweet form").on('submit', function (event) {
-    event.preventDefault();
+  // $("section.new-tweet form").on('submit', function (event) {
+  //   event.preventDefault();
 
-    console.log('on submit')
-    if (isTweetValid()) {
-      //lookup why event target superior to this keyword
-      let serial = $(event.target).serialize();
-      $.ajax("/tweets", {
-        method: "POST",
-        data: serial,
-      })
-        .then(function (res) {
+  //   console.log('on submit')
+  //   if (isTweetValid()) {
+  //     //lookup why event target superior to this keyword
+  //     let serial = $(event.target).serialize();
+  //     $.ajax("/tweets", {
+  //       method: "POST",
+  //       data: serial,
+  //     })
+  //       .then(function (res) {
 
-          console.log("tweet sent to server ")
-        })
-        .catch(function (err) {
-          console.log("ajax load tweeter error")
-        })
-        .then(function () {
-          loadTweets();
-          console.log("new tweets loaded")
-        })
-    }
-  });
+  //         console.log("tweet sent to server ")
+  //       })
+  //       .catch(function (err) {
+  //         console.log("ajax load tweeter error")
+  //       })
+  //       .then(function () {
+  //         loadTweets();
+  //         console.log("new tweets loaded")
+  //       })
+  //   }
+  // });
 
 });
 
