@@ -8,10 +8,12 @@
 
 const renderTweets = function(tweets) {
   // loops through tweets
+  let newTweet = {};
   for(let tweet of tweets){
     
-    tweets[tweet]= createTweetElement(tweet);
+    newTweet[tweet]= createTweetElement(tweet);
   }
+  return newTweet
   // calls createTweetElement for each tweet
   // takes return value and appends it to the tweets container
 }
@@ -22,6 +24,26 @@ const renderTweets = function(tweets) {
 const createTweetElement = function(tweet) {
   let $tweet = /* Your code for creating the tweet element */
   // ...
+  $(`<article>
+
+    <header class="tweet">
+      <div class="tweet-header">
+        <i class="fas fa-horse-head"></i>
+        <h4>${tweet.user.name}</h4>
+      </div>
+      <h2 class=>${tweet.user.handle}</h2>
+    </header>
+    <p class="tweet-body"> ${tweet.content.text}</p>
+    <footer class="tweet-footer">
+      <p>${new Date(tweet["created_at"])} Days ago</p>
+      <div>
+        <i class="fas fa-flag"></i>
+        <i class="fas fa-share"></i>
+        <i class="fas fa-heartbeat"></i>
+      </div>
+    </footer>
+  </article>`)
+  
   return $tweet;
 }
 
