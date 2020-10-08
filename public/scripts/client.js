@@ -118,5 +118,11 @@ $(function () {
 $(function () {
   $("section.new-tweet form").on('submit', function (event) {
     console.log('on submit')
+    event.preventDefault();
+    //lookup why event target superior to this keyword
+    let serial = $(event.target).serialize();
+    $.ajax("/tweets",{
+      method:"POST",
+    })
   })
 })
