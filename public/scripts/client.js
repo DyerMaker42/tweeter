@@ -26,13 +26,6 @@ $(function () {
 
   const renderTweets = function (tweets) {
     // loops through tweets
-    // if (tweets.length === 1) {
-    //   let newTweet = createTweetElement(tweet);
-
-    //   $("#tweet-container").append(newTweet)
-    // }
-
-
     for (let tweet of tweets) {
 
       let newTweet = createTweetElement(tweet);
@@ -50,14 +43,15 @@ $(function () {
 
     }
     //function to convert potentially malicious script to text
-    const escape =  function(str) {
+    const escape = function (str) {
       let div = document.createElement('div');
       div.appendChild(document.createTextNode(str));
       return div.innerHTML;
     }
     //variable storing cleaned user tweet
     const cleanTweet = escape(tweet.content.text);
-    let $tweet = /* Your code for creating the tweet element */
+    //creates tweet element
+    let $tweet =
       $(`<article>
     <header class="tweet">
       <div class="tweet-header">
@@ -121,7 +115,7 @@ $(function () {
   });
 
 
-  
+
 
 
   // $(document).ready(functino) === $(function)
