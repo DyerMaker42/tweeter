@@ -37,7 +37,7 @@ $(function () {
 
       let newTweet = createTweetElement(tweet);
 
-      $("#tweet-container").append(newTweet)
+      $("#tweet-container").prepend(newTweet)
     }
 
     // calls createTweetElement for each tweet
