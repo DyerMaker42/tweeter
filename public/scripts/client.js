@@ -91,36 +91,35 @@ $(document).ready(function () {
   // $('#tweet-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
 
   //renderTweets(data)
-  renderTweets(tweetData)
+  //renderTweets(tweetData)
 
   // responsible for fetching tweets from /tweets page
-  $(function () {
+  const loadTweets = function () {
+    // will use jquery to make request to /tweets
+    //receives array of tweets as json
+    // AJAX Get request to /tweets
 
-
-    const loadTweets =
-
-      // will use jquery to make request to /tweets
-
-      //receives array of tweets as json
-
-      // AJAX Get request to /tweets
-
-      $.ajax("/tweets", {
-        method: 'GET',
+    $.ajax("/tweets", {
+      method: 'GET',
+    })
+      .then(function (res) {
+        console.log("ajax successfully received tweets")
+        console.log('res', res);
+        renderTweets(res);
       })
-        .then(function (res) {
-          console.log("ajax successfully received tweets")
-        })
-        .catch(function (err) {
-          console.log("error ajax did not successfully retrieve tweets")
-        })
-  });
-}
+      .catch(function (err) {
+        console.log("error ajax did not successfully retrieve tweets")
+      })
+  };
+
+//renderTweets(loadTweets);
+loadTweets();
+});
 
 
 
 //ajax handler
-
+//old garbage code
 $(function () {
   $("div.under-tweetgarbage button").on('click', function () {
     console.log('Tweetclicked, performing ajax call...');
@@ -132,7 +131,7 @@ $(function () {
         renderTweets(serializeForm);
       });
   });
-});
+})
 
 // load tweets function
 
