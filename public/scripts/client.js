@@ -32,7 +32,8 @@ const renderTweets = function (tweets) {
 
 const createTweetElement = function (tweet) {
   let daysAgo = function (tweet) {
-    new Date(tweet["created_at"])
+    return moment(tweet["created_at"]).startOf('day').fromNow();
+    
   }
   let $tweet = /* Your code for creating the tweet element */
     $(`<article>
@@ -45,7 +46,7 @@ const createTweetElement = function (tweet) {
     </header>
     <p class="tweet-body"> ${tweet.content.text}</p>
     <footer class="tweet-footer">
-      <p>${8} Days ago</p>
+      <p>${daysAgo(tweet)} Days ago</p>
       <div>
         <i class="fas fa-flag"></i>
         <i class="fas fa-share"></i>
