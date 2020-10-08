@@ -104,12 +104,12 @@ $(function () {
   $("div.under-tweetgarbage button").on('click', function () {
     console.log('Tweetclicked, performing ajax call...');
     $.ajax('index.js', { method: 'POST' })
-    .then(function (sendsFormData) {
-      let serializeForm = sendsFormData.serialize();
-      $.preventDefault();
-      console.log('Success: ', morePostsHtml);
-      renderTweets(serializeForm);
-    });
+      .then(function (sendsFormData) {
+        let serializeForm = sendsFormData.serialize();
+        $.preventDefault();
+        console.log('Success: ', morePostsHtml);
+        renderTweets(serializeForm);
+      });
   });
 });
 
@@ -121,8 +121,26 @@ $(function () {
     event.preventDefault();
     //lookup why event target superior to this keyword
     let serial = $(event.target).serialize();
-    $.ajax("/tweets",{
-      method:"POST",
+    $.ajax("/tweets", {
+      method: "POST",
     })
-  })
-})
+      .then(function (res) {
+        console.log("sadat sent")
+      })
+      .catch(function (err) {
+        console.log("error")
+      });
+  });
+
+});
+
+// get the data sent
+
+//promise
+
+//.catch for error
+
+
+//network dev toodls
+
+// another round playing with ajax
