@@ -8,26 +8,27 @@
 
 const renderTweets = function (tweets) {
   // loops through tweets
-  if (tweets.length === 1) {
+  // if (tweets.length === 1) {
+  //   let newTweet = createTweetElement(tweet);
+
+  //   $("#tweet-container").append(newTweet)
+  // }
+
+
+  for (let tweet of tweets) {
+
     let newTweet = createTweetElement(tweet);
 
     $("#tweet-container").append(newTweet)
   }
 
-  if (tweets.length > 1) {
-    for (let tweet of tweets) {
-
-      let newTweet = createTweetElement(tweet);
-
-      $("#tweet-container").append(newTweet)
-    }
-  }
   // calls createTweetElement for each tweet
   // takes return value and appends it to the tweets container
 }
 
 
 
+//fix date later
 
 const createTweetElement = function (tweet) {
   let daysAgo = function (tweet) {
@@ -44,7 +45,7 @@ const createTweetElement = function (tweet) {
     </header>
     <p class="tweet-body"> ${tweet.content.text}</p>
     <footer class="tweet-footer">
-      <p>${daysAgo} Days ago</p>
+      <p>${8} Days ago</p>
       <div>
         <i class="fas fa-flag"></i>
         <i class="fas fa-share"></i>
@@ -59,7 +60,7 @@ const createTweetElement = function (tweet) {
 
 
 $(document).ready(function () {
-  const tweetData = {
+  const tweetData = [{
     "user": {
       "name": "Newton",
       "avatars": "https://i.imgur.com/73hZDYK.png",
@@ -69,9 +70,19 @@ $(document).ready(function () {
       "text": "If I have seen further it is by standing on the shoulders of giants"
     },
     "created_at": 1461116232227
-  }
+  }, {
+    "user": {
+      "name": "Newton",
+      "avatars": "https://i.imgur.com/73hZDYK.png",
+      "handle": "@SirIsaac"
+    },
+    "content": {
+      "text": "If I have seen further it is by standing on the shoulders of giants"
+    },
+    "created_at": 1461116232227
+  }]
 
-  const $tweet = $(`<article class="tweet">Hello world</article>`);
+  //const $tweet = $(`<article class="tweet">Hello world</article>`);
 
 
   // Test / driver code (temporary)
@@ -85,3 +96,21 @@ $(document).ready(function () {
 
 });
 
+
+
+//ajax handler
+
+$(function () {
+  $("div.under-tweet button").on('click', function () {
+    console.log('Tweetclicked, performing ajax call...');
+    $.ajax('index.js', { method: 'POST' })
+    .then(function (sendsFormData) {
+      let serializeForm = sendsFormData.serialize();
+      $.preventDefault();
+      console.log('Success: ', morePostsHtml);
+      renderTweets(serializeForm);
+    });
+  });
+});
+
+// load tweets function
