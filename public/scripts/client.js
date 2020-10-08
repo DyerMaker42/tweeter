@@ -33,7 +33,7 @@ const renderTweets = function (tweets) {
 const createTweetElement = function (tweet) {
   let daysAgo = function (tweet) {
     return moment(tweet["created_at"]).startOf('day').fromNow();
-    
+
   }
   let $tweet = /* Your code for creating the tweet element */
     $(`<article>
@@ -113,8 +113,8 @@ $(document).ready(function () {
       })
   };
 
-//renderTweets(loadTweets);
-loadTweets();
+  //renderTweets(loadTweets);
+  loadTweets();
 });
 
 
@@ -136,26 +136,40 @@ loadTweets();
 
 // load tweets function
 
-$(function () {
+const isValid = () => {
+  
+  if ($("#tweet-text").val().length > 140) {
+    alert("Over 140 characters, please reduce then resubmit");
+    
+    return false;
+  }
+  if ($("#tweet-text").val().length === 0) {
+    alert("Oops, you submitted nothing, please add something then try again");
+    return false;
+  }
+  return true;
+}
+
+$(function() {
   $("section.new-tweet form").on('submit', function (event) {
-    if(event.length > 140){
-      return alert("too many characters")
-    } else if(event === ""){
-      return alert("why send empty tweet?")
-    }
-    console.log('on submit')
     event.preventDefault();
-    //lookup why event target superior to this keyword
-    let serial = $(event.target).serialize();
-    $.ajax("/tweets", {
-      method: "POST",
-    })
-      .then(function (res) {
-        console.log("tweet sent to server ")
+
+    console.log('on submit')
+    if(isValid()) {
+      //lookup why event target superior to this keyword
+      let serial = $(event.target).serialize();
+      $.ajax("/tweets", {
+        method: "POST",
+        data: serial,
       })
-      .catch(function (err) {
-        console.log("ajax load tweeter error")
-      });
+        .then(function (res) {
+
+          console.log("tweet sent to server ")
+        })
+        .catch(function (err) {
+          console.log("ajax load tweeter error")
+        });
+    }
   });
 
 });
