@@ -44,15 +44,18 @@ $(function () {
     // takes return value and appends it to the tweets container
   }
   const createTweetElement = function (tweet) {
+    //gets how long ago tweet was created
     let daysAgo = function (tweet) {
       return moment(tweet["created_at"]).startOf('day').fromNow();
 
     }
+    //function to convert potentially malicious script to text
     const escape =  function(str) {
       let div = document.createElement('div');
       div.appendChild(document.createTextNode(str));
       return div.innerHTML;
     }
+    //variable storing cleaned user tweet
     const cleanTweet = escape(tweet.content.text);
     let $tweet = /* Your code for creating the tweet element */
       $(`<article>
