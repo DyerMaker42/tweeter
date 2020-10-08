@@ -8,6 +8,7 @@
 .counter{
   display: flex;
   flex-direction: row-reverse;
+  color: blueviolet
 }
 
 #tweet-text{
@@ -94,5 +95,7 @@ article:hover .twat{
 
 div.error-box{
   display:none;
-  border: 3px solid red
+  border: 3px solid red;
+  color: red;
+  width:auto;
 }
