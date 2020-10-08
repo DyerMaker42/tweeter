@@ -46,7 +46,7 @@ const createTweetElement = function (tweet) {
     </header>
     <p class="tweet-body"> ${tweet.content.text}</p>
     <footer class="tweet-footer">
-      <p>${daysAgo(tweet)} Days ago</p>
+      <p>${daysAgo(tweet)}</p>
       <div>
         <i class="fas fa-flag"></i>
         <i class="fas fa-share"></i>
@@ -58,7 +58,7 @@ const createTweetElement = function (tweet) {
   return $tweet;
 }
 
-
+// $(document).ready(functino) === $(function)
 
 $(document).ready(function () {
   const tweetData = [{
