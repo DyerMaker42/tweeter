@@ -99,3 +99,8 @@ div.error-box{
   color: red;
   width:auto;
 }
+/* need to move counter back toward the end of the line */
+section.new-tweet{
+  display: flex;
+  flex-direction: column;
+}
