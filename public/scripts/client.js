@@ -121,23 +121,28 @@ loadTweets();
 
 //ajax handler
 //old garbage code
-$(function () {
-  $("div.under-tweetgarbage button").on('click', function () {
-    console.log('Tweetclicked, performing ajax call...');
-    $.ajax('index.js', { method: 'POST' })
-      .then(function (sendsFormData) {
-        let serializeForm = sendsFormData.serialize();
-        $.preventDefault();
-        console.log('Success: ', morePostsHtml);
-        renderTweets(serializeForm);
-      });
-  });
-})
+// $(function () {
+//   $("div.under-tweetgarbage button").on('click', function () {
+//     console.log('Tweetclicked, performing ajax call...');
+//     $.ajax('index.js', { method: 'POST' })
+//       .then(function (sendsFormData) {
+//         let serializeForm = sendsFormData.serialize();
+//         $.preventDefault();
+//         console.log('Success: ', morePostsHtml);
+//         renderTweets(serializeForm);
+//       });
+//   });
+// })
 
 // load tweets function
 
 $(function () {
   $("section.new-tweet form").on('submit', function (event) {
+    if(event.length > 140){
+      return alert("too many characters")
+    } else if(event === ""){
+      return alert("why send empty tweet?")
+    }
     console.log('on submit')
     event.preventDefault();
     //lookup why event target superior to this keyword

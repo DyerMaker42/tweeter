@@ -1,4 +1,4 @@
-const vampire = (text) => console.log(`Hello ${text}`);
+//const vampire = (text) => console.log(`Hello ${text}`);
 
 $(document).ready(function () {
   $("#tweet-text").on("keyup", function () {
