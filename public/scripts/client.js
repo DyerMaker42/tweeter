@@ -125,10 +125,10 @@ $(function () {
       method: "POST",
     })
       .then(function (res) {
-        console.log("sadat sent")
+        console.log("tweet sent to server ")
       })
       .catch(function (err) {
-        console.log("error")
+        console.log("ajax load tweeter error")
       });
   });
 
