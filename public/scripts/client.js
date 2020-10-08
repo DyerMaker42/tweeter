@@ -101,7 +101,7 @@ $(document).ready(function () {
 //ajax handler
 
 $(function () {
-  $("div.under-tweet button").on('click', function () {
+  $("div.under-tweetgarbage button").on('click', function () {
     console.log('Tweetclicked, performing ajax call...');
     $.ajax('index.js', { method: 'POST' })
     .then(function (sendsFormData) {
@@ -114,3 +114,9 @@ $(function () {
 });
 
 // load tweets function
+
+$(function () {
+  $("section.new-tweet form").on('submit', function (event) {
+    console.log('on submit')
+  })
+})
