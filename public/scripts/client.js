@@ -48,6 +48,12 @@ $(function () {
       return moment(tweet["created_at"]).startOf('day').fromNow();
 
     }
+    const escape =  function(str) {
+      let div = document.createElement('div');
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    }
+    const cleanTweet = escape(tweet.content.text);
     let $tweet = /* Your code for creating the tweet element */
       $(`<article>
     <header class="tweet">
@@ -57,7 +63,7 @@ $(function () {
       </div>
       <h2>${tweet.user.handle}</h2>
     </header>
-    <p class="tweet-body"> ${tweet.content.text}</p>
+    <p class="tweet-body"> ${cleanTweet}</p>
     <footer class="tweet-footer">
       <p>${daysAgo(tweet)}</p>
       <div>
