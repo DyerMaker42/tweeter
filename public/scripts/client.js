@@ -136,7 +136,7 @@ $(document).ready(function () {
 
 // load tweets function
 
-const isValid = () => {
+const isTweetValid = () => {
   
   if ($("#tweet-text").val().length > 140) {
     alert("Over 140 characters, please reduce then resubmit");
@@ -155,7 +155,7 @@ $(function() {
     event.preventDefault();
 
     console.log('on submit')
-    if(isValid()) {
+    if(isTweetValid()) {
       //lookup why event target superior to this keyword
       let serial = $(event.target).serialize();
       $.ajax("/tweets", {
