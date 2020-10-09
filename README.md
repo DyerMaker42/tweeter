@@ -23,8 +23,14 @@ This project was created to, in part, shocase HTML, CSS, JS, jQuery and AJAX fro
 ## Screenshots
 - Error handling for a blank submission
 !["Error handling for a blank submission"](https://github.com/DyerMaker42/tweeter/blob/master/docs/Tweeter%20-%20error%20empty%20submission.png)
+
+
+
 - Error handling when the maximum chartacter threshold has been exceeded
 !["Error handling when the maximum chartacter threshold has been exceeded"](https://github.com/DyerMaker42/tweeter/blob/master/docs/Tweeter%20-%20error%20over%20character%20limit.png)
+
+
+
 - View of the Mainpage - Desktop
 !["View of the Mainpage - Desktop"](https://github.com/DyerMaker42/tweeter/blob/master/docs/Tweeter%20Main%20View%2C%20no%20hover.png)
 - View of the Mainpage, when you hover over a tweet there is a fun dropshadow effect
