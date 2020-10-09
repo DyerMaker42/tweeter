@@ -5,14 +5,11 @@
  */
 $(function () {
   const loadTweets = function () {
-
-
     $.ajax("/tweets", {
       method: 'GET',
     })
       .then(function (res) {
-        console.log("ajax successfully received tweets")
-        console.log('res', res);
+        console.log("ajax successfully received tweets");
         $("#tweet-container").empty();
         //receives array of tweets as json
         renderTweets(res);
@@ -30,7 +27,7 @@ $(function () {
 
       let newTweet = createTweetElement(tweet);
 
-      $("#tweet-container").prepend(newTweet)
+      $("#tweet-container").prepend(newTweet);
     }
 
     // calls createTweetElement for each tweet
@@ -69,7 +66,7 @@ $(function () {
         <i class="fas fa-heartbeat"></i>
       </div>
     </footer>
-  </article>`)
+  </article>`);
 
     return $tweet;
   }
@@ -78,20 +75,18 @@ $(function () {
 
     if ($("#tweet-text").val().length > 140) {
 
-      $("div.error-box").text("Over 140 characters, please reduce then resubmit").slideDown(1000)
+      $("div.error-box").text("Over 140 characters, please reduce then resubmit").slideDown(1000);
       setTimeout(function () {
-        console.log("REMOVE")
         $("div.error-box").slideUp(2000)
-      }, 6000)
+      }, 6000);
       return false;
     }
     if ($("#tweet-text").val().length === 0) {
 
       $("div.error-box").text("Oops, you submitted nothing, please add something then try again").slideDown(1000)
-      setTimeout(function () {
-        console.log("REMOVE")
+      setTimeout(function () { 
         $("div.error-box").slideUp(2000)
-      }, 6000)
+      }, 6000);
       return false;
     }
     return true;
@@ -102,7 +97,7 @@ $(function () {
     event.preventDefault();
     //doing the error thing
 
-    console.log('on submit')
+    console.log('on submit');
     if (isTweetValid()) {
       //lookup why event target superior to this keyword
       let serial = $(event.target).serialize();
@@ -112,20 +107,20 @@ $(function () {
       })
         .then(function (res) {
 
-          console.log("tweet sent to server ")
+          console.log("tweet sent to server ");
         })
         .catch(function (err) {
-          console.log("ajax load tweeter error")
+          console.log("ajax load tweeter error");
         })
         .then(function () {
 
           loadTweets();
-          console.log("new tweets loaded")
+          console.log("new tweets loaded");
         })
         //clears text box and resets counter
         .then(function () {
           $("#tweet-text").val("");
-          $(".counter").val(140)
+          $(".counter").val(140);
         })
     }
   });
