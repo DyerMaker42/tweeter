@@ -5,9 +5,7 @@
  */
 $(function () {
   const loadTweets = function () {
-    // will use jquery to make request to /tweets
-    //receives array of tweets as json
-    // AJAX Get request to /tweets
+
 
     $.ajax("/tweets", {
       method: 'GET',
@@ -16,12 +14,14 @@ $(function () {
         console.log("ajax successfully received tweets")
         console.log('res', res);
         $("#tweet-container").empty();
+        //receives array of tweets as json
         renderTweets(res);
       })
       .catch(function (err) {
         console.log("error ajax did not successfully retrieve tweets")
       })
   };
+
   loadTweets();
 
   const renderTweets = function (tweets) {
@@ -77,31 +77,31 @@ $(function () {
   const isTweetValid = () => {
 
     if ($("#tweet-text").val().length > 140) {
-      //alert("Over 140 characters, please reduce then resubmit");
+
       $("div.error-box").text("Over 140 characters, please reduce then resubmit").slideDown(1000)
-      setTimeout(function(){
+      setTimeout(function () {
         console.log("REMOVE")
         $("div.error-box").slideUp(2000)
-      },6000)
+      }, 6000)
       return false;
     }
     if ($("#tweet-text").val().length === 0) {
-      //alert("Oops, you submitted nothing, please add something then try again");
+
       $("div.error-box").text("Oops, you submitted nothing, please add something then try again").slideDown(1000)
-      setTimeout(function(){
+      setTimeout(function () {
         console.log("REMOVE")
         $("div.error-box").slideUp(2000)
-      },6000)
+      }, 6000)
       return false;
     }
     return true;
   }
 
-//send tweet
+  //send tweet
   $("section.new-tweet form").on('submit', function (event) {
     event.preventDefault();
     //doing the error thing
-    
+
     console.log('on submit')
     if (isTweetValid()) {
       //lookup why event target superior to this keyword
@@ -111,157 +111,23 @@ $(function () {
         data: serial,
       })
         .then(function (res) {
-          
+
           console.log("tweet sent to server ")
         })
         .catch(function (err) {
           console.log("ajax load tweeter error")
         })
         .then(function () {
-          
+
           loadTweets();
           console.log("new tweets loaded")
         })
         //clears text box and resets counter
-        .then(function(){
+        .then(function () {
           $("#tweet-text").val("");
           $(".counter").val(140)
         })
     }
   });
-
-
-  $()
-
-
-  // $(document).ready(functino) === $(function)
-
-
-  // $(document).ready(function () {
-  //   const tweetData = [{
-  //     "user": {
-  //       "name": "Newton",
-  //       "avatars": "https://i.imgur.com/73hZDYK.png",
-  //       "handle": "@SirIsaac"
-  //     },
-  //     "content": {
-  //       "text": "If I have seen further it is by standing on the shoulders of giants"
-  //     },
-  //     "created_at": 1461116232227
-  //   }, {
-  //     "user": {
-  //       "name": "Newton",
-  //       "avatars": "https://i.imgur.com/73hZDYK.png",
-  //       "handle": "@SirIsaac"
-  //     },
-  //     "content": {
-  //       "text": "If I have seen further it is by standing on the shoulders of giants"
-  //     },
-  //     "created_at": 1461116232227
-  //   }];
-
-  //const $tweet = $(`<article class="tweet">Hello world</article>`);
-
-
-  // Test / driver code (temporary)
-  // console.log($tweet); // to see what it looks like
-  // console.log($('#tweet-container'));
-  // $('#tweet-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
-
-  //renderTweets(data)
-  //renderTweets(tweetData)
-
-  // responsible for fetching tweets from /tweets page
-  /* const loadTweets = function () {
-      // will use jquery to make request to /tweets
-      //receives array of tweets as json
-      // AJAX Get request to /tweets
-  
-      $.ajax("/tweets", {
-        method: 'GET',
-      })
-        .then(function (res) {
-          console.log("ajax successfully received tweets")
-          console.log('res', res);
-          renderTweets(res);
-        })
-        .catch(function (err) {
-          console.log("error ajax did not successfully retrieve tweets")
-        })
-    };
-  */
-  //renderTweets(loadTweets);
-  //   /loadTweets();
-  // });
-
-
-
-  //ajax handler
-  //old garbage code
-  // $(function () {
-  //   $("div.under-tweetgarbage button").on('click', function () {
-  //     console.log('Tweetclicked, performing ajax call...');
-  //     $.ajax('index.js', { method: 'POST' })
-  //       .then(function (sendsFormData) {
-  //         let serializeForm = sendsFormData.serialize();
-  //         $.preventDefault();
-  //         console.log('Success: ', morePostsHtml);
-  //         renderTweets(serializeForm);
-  //       });
-  //   });
-  // })
-
-  // load tweets function
-
-  // const isTweetValid = () => {
-
-  //   if ($("#tweet-text").val().length > 140) {
-  //     alert("Over 140 characters, please reduce then resubmit");
-
-  //     return false;
-  //   }
-  //   if ($("#tweet-text").val().length === 0) {
-  //     alert("Oops, you submitted nothing, please add something then try again");
-  //     return false;
-  //   }
-  //   return true;
-  // }
-
-
-  // $("section.new-tweet form").on('submit', function (event) {
-  //   event.preventDefault();
-
-  //   console.log('on submit')
-  //   if (isTweetValid()) {
-  //     //lookup why event target superior to this keyword
-  //     let serial = $(event.target).serialize();
-  //     $.ajax("/tweets", {
-  //       method: "POST",
-  //       data: serial,
-  //     })
-  //       .then(function (res) {
-
-  //         console.log("tweet sent to server ")
-  //       })
-  //       .catch(function (err) {
-  //         console.log("ajax load tweeter error")
-  //       })
-  //       .then(function () {
-  //         loadTweets();
-  //         console.log("new tweets loaded")
-  //       })
-  //   }
-  // });
-
 });
 
-// get the data sent
-
-//promise
-
-//.catch for error
-
-
-//network dev toodls
-
-// another round playing with ajax
