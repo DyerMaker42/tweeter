@@ -13,7 +13,8 @@ nav{
   
   top: 0;
 
-
+  font-family: "Bungee", sans-serif;
+  font-weight: 300;
   
 }
 #logo{
@@ -26,4 +27,21 @@ nav{
 
 strong{
   font-weight: bold;
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 420px) {
+  /* Write smartphone only styles here */
+  nav{
+    background-color:transparent;
+    height: 0px;
+    color: moccasin;
+    /* -webkit-text-stroke: .01em black; */
+  }
+  
+
+ 
+
+
+
 }

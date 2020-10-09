@@ -20,7 +20,7 @@
   resize: none;
 	outline: none;
   border: none;
-  min-width: 30em;
+  min-width: 90%;
   border-bottom: 3px solid  #83A4C5;
   margin: 20px 0px;
   line-height: .85;
@@ -104,3 +104,14 @@ section.new-tweet{
   display: flex;
   flex-direction: column;
 }
+/* ========================================================= */
+@media only screen and (min-width: 320px) and (max-width: 420px) {
+  /* Write smartphone only styles here */
+
+
+
+
+}
+
+
+

@@ -20,11 +20,12 @@ body {
   font-size: 24px;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 300;
+  
 }
-nav{
+/* nav{
   font-family: "Bungee", sans-serif;
   font-weight: 300;
-}
+} */
 /* header{
   display: flex;
   
@@ -55,3 +56,16 @@ main{
    flex-direction: column;
    
  }
+
+
+ @media only screen and (min-width: 320px) and (max-width: 420px) {
+  /* Write smartphone only styles here */
+  body{
+    width:fit-content
+  }
+
+ 
+
+
+
+}
