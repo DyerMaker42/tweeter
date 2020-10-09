@@ -97,7 +97,7 @@ $(function () {
     return true;
   }
 
-
+//send tweet
   $("section.new-tweet form").on('submit', function (event) {
     event.preventDefault();
     //doing the error thing
@@ -111,15 +111,21 @@ $(function () {
         data: serial,
       })
         .then(function (res) {
-
+          
           console.log("tweet sent to server ")
         })
         .catch(function (err) {
           console.log("ajax load tweeter error")
         })
         .then(function () {
+          
           loadTweets();
           console.log("new tweets loaded")
+        })
+        //clears text box and resets counter
+        .then(function(){
+          $("#tweet-text").val("");
+          $(".counter").val(140)
         })
     }
   });
