@@ -33,7 +33,9 @@ This project was created to, in part, shocase HTML, CSS, JS, jQuery and AJAX fro
 
 - View of the Mainpage - Desktop
 !["View of the Mainpage - Desktop"](https://github.com/DyerMaker42/tweeter/blob/master/docs/Tweeter%20Main%20View%2C%20no%20hover.png)
+
 - View of the Mainpage, when you hover over a tweet there is a fun dropshadow effect
 !["View of the Mainpage, when you hover over a tweet there is a fun dropshadow effect"](https://github.com/DyerMaker42/tweeter/blob/master/docs/Tweeter-%20Main%20View%20hover%20with%20dropshadow.png)
+
 - View on Mobile Browsers - under 420 pixels                                     
 !["View on Mobile Browsers"](https://github.com/DyerMaker42/tweeter/blob/master/docs/Tweeter-Mobile%20View.png)
