@@ -48,40 +48,40 @@
     <div class="tweet-button">
       <strong>Write</strong> a new tweet
     </div>
-
   </nav>
-  <header id="top">
-    <div>
-      <img src="/images/profile-hex.png">
-    </div>
-    <br>
-    <div>
-      <h2>Your Name</h2>
-    </div>
-  </header>
+  <div class="desktop">
+    <header id="top">
+      <div>
+        <img src="/images/profile-hex.png">
+      </div>
+      <br>
+      <div>
+        <h2>Your Name</h2>
+      </div>
+    </header>
 
 
-  <!-- <div>
+    <!-- <div>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati dolor soluta ducimus suscipit aut veniam
       perferendis impedit dolorum hic omnis non optio asperiores ipsa ratione, quos maiores. Laudantium, accusamus
       minima!
     </div> -->
-  <!-- Page-specific (main) content here -->
-  <main class="container">
-    <section class="new-tweet">
-      <div class="error-box"></div>
-      <!-- <h2>Compose Tweet</h2> -->
-      <form method="POST" action="/tweets">
-        <!-- <label for="tweet-text">What are you humming about?</label> -->
-        <textarea name="text" placeholder="What are you humming about?" id="tweet-text"></textarea>
-        <div class="under-tweet">
-          <button type="submit">Tweet</button>
-          <output name="counter" class="counter" for="tweet-text">140</output>
-        </div>
-      </form>
-    </section>
-    <div id="tweet-container">
-      <!-- <article>
+    <!-- Page-specific (main) content here -->
+    <main class="container">
+      <section class="new-tweet">
+        <div class="error-box"></div>
+        <!-- <h2>Compose Tweet</h2> -->
+        <form method="POST" action="/tweets">
+          <!-- <label for="tweet-text">What are you humming about?</label> -->
+          <textarea name="text" placeholder="What are you humming about?" id="tweet-text"></textarea>
+          <div class="under-tweet">
+            <button type="submit">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
+      <div id="tweet-container">
+        <!-- <article>
 
         <header class="tweet">
           <div class="tweet-header">
@@ -103,9 +103,9 @@
           </div>
         </footer>
       </article> -->
-    </div>
-  </main>
-
+      </div>
+    </main>
+  </div>
   <!-- <div>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci qui asperiores aut omnis tempora nisi odit est
       perspiciatis cupiditate repellat optio facere sint sit, neque natus velit quia impedit. Aut!
