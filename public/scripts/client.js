@@ -9,13 +9,13 @@ $(function () {
       method: 'GET',
     })
       .then(function (res) {
-       
+
         $("#tweet-container").empty();
         //receives array of tweets as json
         renderTweets(res);
       })
       .catch(function (err) {
-       
+
       })
   };
 
@@ -84,7 +84,7 @@ $(function () {
     if ($("#tweet-text").val().length === 0) {
 
       $("div.error-box").text("Oops, you submitted nothing, please add something then try again").slideDown(1000)
-      setTimeout(function () { 
+      setTimeout(function () {
         $("div.error-box").slideUp(2000)
       }, 6000);
       return false;
@@ -97,7 +97,7 @@ $(function () {
     event.preventDefault();
     //doing the error thing
 
-    
+
     if (isTweetValid()) {
       //lookup why event target superior to this keyword
       let serial = $(event.target).serialize();
@@ -106,21 +106,16 @@ $(function () {
         data: serial,
       })
         .then(function (res) {
-
-          
-        })
-        .catch(function (err) {
-          
-        })
-        .then(function () {
           //new tweets loaded
           loadTweets();
-          
-        })
-        //clears text box and resets counter
-        .then(function () {
+
+          //clears text box and resets counter
           $("#tweet-text").val("");
           $(".counter").val(140);
+
+        })
+        .catch(function (err) {
+
         })
     }
   });
