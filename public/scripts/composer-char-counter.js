@@ -6,8 +6,10 @@ $(document).ready(function () {
     console.log(input.val().length);
     const counterNumber = 140 - input.val().length
     $(".counter").text(counterNumber);
-    if (counterNumber <= 0) {
+    if (counterNumber < 0) {
       $(".counter").css("color", '#f76e6e')
+    } else {
+      $(".counter").css("color", '#8a2be2')
     }
   })
 });
