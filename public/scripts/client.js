@@ -9,13 +9,13 @@ $(function () {
       method: 'GET',
     })
       .then(function (res) {
-        console.log("ajax successfully received tweets");
+       
         $("#tweet-container").empty();
         //receives array of tweets as json
         renderTweets(res);
       })
       .catch(function (err) {
-        console.log("error ajax did not successfully retrieve tweets")
+       
       })
   };
 
@@ -97,7 +97,7 @@ $(function () {
     event.preventDefault();
     //doing the error thing
 
-    console.log('on submit');
+    
     if (isTweetValid()) {
       //lookup why event target superior to this keyword
       let serial = $(event.target).serialize();
@@ -107,15 +107,15 @@ $(function () {
       })
         .then(function (res) {
 
-          console.log("tweet sent to server ");
+          
         })
         .catch(function (err) {
-          console.log("ajax load tweeter error");
+          
         })
         .then(function () {
-
+          //new tweets loaded
           loadTweets();
-          console.log("new tweets loaded");
+          
         })
         //clears text box and resets counter
         .then(function () {
