@@ -19,8 +19,6 @@ $(function () {
       })
   };
 
-  loadTweets();
-
   const renderTweets = function (tweets) {
     // loops through tweets
     for (let tweet of tweets) {
@@ -35,10 +33,8 @@ $(function () {
   }
   const createTweetElement = function (tweet) {
     //gets how long ago tweet was created
-    let daysAgo = function (tweet) {
-      return moment(tweet["created_at"]).startOf('day').fromNow();
+    let daysAgo = moment(tweet["created_at"]).startOf('day').fromNow();
 
-    }
     //function to convert potentially malicious script to text
     const escape = function (str) {
       let div = document.createElement('div');
@@ -59,7 +55,7 @@ $(function () {
     </header>
     <p class="tweet-body"> ${cleanTweet}</p>
     <footer class="tweet-footer">
-      <p>${daysAgo(tweet)}</p>
+      <p>${daysAgo}</p>
       <div>
         <i class="fas fa-flag"></i>
         <i class="fas fa-share"></i>
@@ -97,7 +93,6 @@ $(function () {
     event.preventDefault();
     //doing the error thing
 
-
     if (isTweetValid()) {
       //lookup why event target superior to this keyword
       let serial = $(event.target).serialize();
@@ -119,5 +114,8 @@ $(function () {
         })
     }
   });
+
+  loadTweets();
+
 });
 
