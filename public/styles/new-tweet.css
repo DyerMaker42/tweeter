@@ -84,6 +84,10 @@ article:hover{
   opacity: 0;
 }
 
+.tweet-header-pic {
+  width: 80px;
+}
+
 article:hover .twat{
   opacity:1;
 }

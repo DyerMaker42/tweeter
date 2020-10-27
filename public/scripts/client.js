@@ -35,6 +35,7 @@ $(function () {
     //gets how long ago tweet was created
     let daysAgo = moment(tweet["created_at"]).startOf('day').fromNow();
 
+
     //function to convert potentially malicious script to text
     const escape = function (str) {
       let div = document.createElement('div');
